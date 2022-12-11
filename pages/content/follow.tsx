@@ -1,6 +1,6 @@
 const ContentFollow = () => {
     return (
-        <div></div>
+        <div>Follow</div>
     )
 }
 

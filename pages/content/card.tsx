@@ -1,6 +1,6 @@
 const ContentCard = () => {
     return (
-        <div></div>
+        <div>Card</div>
     )
 }
 

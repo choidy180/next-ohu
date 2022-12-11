@@ -32,15 +32,14 @@ const Navigation = () => {
             <Box className="nav">
                 <Left className="nav">
                     <span onClick={()=> Router.push('/')} className={router.asPath === '/' ? 'active' : ''}>홈</span>
-                    <span onClick={()=> Router.push('/content/follow')}>팔로잉</span>
-                    <span onClick={()=> Router.push('/')}>사진</span>
-                    <span onClick={()=> Router.push('/')}>집들이</span>
-                    <span onClick={()=> Router.push('/')}>노하우</span>
-                    <span onClick={()=> Router.push('/')}>전문가집들이</span>
-                    <span onClick={()=> Router.push('/')}>셀프가이드</span>
-                    <span onClick={()=> Router.push('/')}>질문과답변</span>
-                    <span onClick={()=> Router.push('/')}>3D인테리어</span>
-                    <span onClick={()=> Router.push('/')}>이벤트</span>
+                    <span onClick={()=> Router.push('/content/follow')} className={router.asPath === '/content/follow' ? 'active' : ''}>팔로잉</span>
+                    <span onClick={()=> Router.push('/content/card')} className={router.asPath === '/content/card' ? 'active' : ''}>사진</span>
+                    <span onClick={()=> Router.push('/content/house-warming/self')} className={router.asPath === '/content/house-warming/self' ? 'active' : ''}>집들이</span>
+                    <span onClick={()=> Router.push('/content/advices')} className={router.asPath === '/content/advices' ? 'active' : ''}>노하우</span>
+                    <span onClick={()=> Router.push('/content/house-warming/pro')} className={router.asPath === '/content/house-warming/pro' ? 'active' : ''}>전문가집들이</span>
+                    <span onClick={()=> Router.push('/content/self_interior')} className={router.asPath === '/content/self_interior' ? 'active' : ''}>셀프가이드</span>
+                    <span onClick={()=> Router.push('/content/questions')} className={router.asPath === '/content/questions' ? 'active' : ''}>질문과답변</span>
+                    <span onClick={()=> Router.push('/content/event')} className={router.asPath === '/content/event' ? 'active' : ''}>이벤트</span>
                 </Left>
                 <Right className="nav">
                     <p className="rank">
