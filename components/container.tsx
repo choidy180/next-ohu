@@ -19,8 +19,9 @@ const ContainerBox = styled.div`
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-top: 140px;
 `
 
 export default Container;
