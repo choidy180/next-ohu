@@ -1,6 +1,8 @@
 import Image from "next/image"
 import { useRef, useState } from "react";
 import styled from "styled-components"
+import AutoHeightImage from "../components/index/AutoHeightImage";
+import mainTopIcondata from './api/json/main-top-icon.json';
 
 export default function Home() {
     const image_container_box = useRef<any>(null);
@@ -50,20 +52,37 @@ export default function Home() {
                           ref={image_container_box}
                           style={{transform: `translateX(-0px)`}}
                       >
-                        {image_container_data.map((content, i) => (
-                            <div 
-                                key={i} 
-                                className="image-content"
-                            >
-                                <Image
-                                    src={'/images/20221207_234147014.jpg'}
-                                    layout='fill'
-                                    objectFit='cover'
-                                    alt=''
-                                />
-                                <p>{content}</p>
-                            </div>
-                        ))}
+                        {image_container_data.map((content:any, i:number) => {
+                            if(i % 2 === 0){
+                                return (
+                                    <div 
+                                        key={i} 
+                                        className="image-content"
+                                    >
+                                        <Image
+                                            src={'/images/cf58a383fc1ff37fc38ae7c1baff8917a2ab7713.gif'}
+                                            layout='fill'
+                                            objectFit='cover'
+                                            alt=''
+                                        />
+                                    </div>
+                                )
+                            } else {
+                                return (
+                                    <div 
+                                        key={i} 
+                                        className="image-content"
+                                    >
+                                        <Image
+                                            src={'/images/e5e2ee6736665eafda863dbde522e075b4f7e746.gif'}
+                                            layout='fill'
+                                            objectFit='cover'
+                                            alt=''
+                                        />
+                                    </div>
+                                )
+                            }
+                        })}
                       </div>
                   </div>
                   <span className="button left-button" onClick={handleImagePrev}>
@@ -82,6 +101,17 @@ export default function Home() {
                   </div>
               </div>
           </TopBox>
+            <TopIconBox>
+                {mainTopIcondata.response_data.map((content, i) => (
+                    <div>
+                        <AutoHeightImage
+                            src={`/images/icon-main/${content.image}`} 
+                            alt="icon-image"
+                        />
+                        <p>{content.title}</p>
+                    </div>
+                ))}
+            </TopIconBox>
         </Container>
     )
 }
@@ -236,6 +266,27 @@ const TopBox = styled.div`
                 color: #FFFFFF;
                 font-size: 14px;
             }
+        }
+    }
+`
+
+const TopIconBox = styled.div`
+    width: 100%;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    div{
+        width: 100%;
+        height: 100px;
+        cursor: pointer;
+        p {
+            margin: 0;
+            margin-top: 6px;
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
         }
     }
 `
