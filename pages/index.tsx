@@ -5,6 +5,7 @@ import AutoHeightImage from "../components/index/AutoHeightImage";
 import mainTopIcondata from './api/json/main-top-icon.json';
 
 export default function Home() {
+    console.log('123');
     const image_container_box = useRef<any>(null);
     const image_container_data = [0,1,2,3,4,5,6,7,8,9]; 
     const [imageCount, setImageCount] = useState<number>(0);
@@ -23,7 +24,7 @@ export default function Home() {
     return (
         <Container>
           <TopBox>
-              <div className="left">
+              {/* <div className="left">
                 <Image
                     src={'/images/166849926723253580.jpg'}
                     layout='fill'
@@ -44,7 +45,7 @@ export default function Home() {
                     </div>
                     <span>오늘도날씨는맑음</span>
                 </div>
-              </div>
+              </div> */}
               <div className="right">
                   <div className="image-container">
                       <div 
@@ -52,7 +53,7 @@ export default function Home() {
                           ref={image_container_box}
                           style={{transform: `translateX(-0px)`}}
                       >
-                        {image_container_data.map((content:any, i:number) => {
+                        {/* {image_container_data.map((content:any, i:number) => {
                             if(i % 2 === 0){
                                 return (
                                     <div 
@@ -82,7 +83,7 @@ export default function Home() {
                                     </div>
                                 )
                             }
-                        })}
+                        })} */}
                       </div>
                   </div>
                   <span className="button left-button" onClick={handleImagePrev}>
@@ -101,9 +102,9 @@ export default function Home() {
                   </div>
               </div>
           </TopBox>
-            <TopIconBox>
+            {/* <TopIconBox>
                 {mainTopIcondata.response_data.map((content, i) => (
-                    <div>
+                    <div key={'icon-'+i}>
                         <AutoHeightImage
                             src={`/images/icon-main/${content.image}`} 
                             alt="icon-image"
@@ -111,7 +112,7 @@ export default function Home() {
                         <p>{content.title}</p>
                     </div>
                 ))}
-            </TopIconBox>
+            </TopIconBox> */}
         </Container>
     )
 }
@@ -120,6 +121,7 @@ const Container = styled.div`
     width: 100%;
     max-width: 1256px;
     padding: 20px 56px;
+    background-color: #FFFFFF;
 `
 const TopBox = styled.div`
     width: 100%;
@@ -127,6 +129,7 @@ const TopBox = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #000000;
     .left {
         width: calc(100% - 300px);
         height: 100%;
@@ -159,6 +162,7 @@ const TopBox = styled.div`
             display: flex;
             justify-content: flex-start;
             align-items: center;
+            color: #000000;
             .image-box{
               width: 32px;
               height: 32px;
