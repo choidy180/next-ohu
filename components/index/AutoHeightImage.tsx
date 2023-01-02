@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const AutoHeightImage = ({ ...props }: ImageProps): React.ReactElement => (
   <AutoHeightImageWrapper>
-    <Image layout="fill" className="autoImage" {...props} />
+    <Image layout="fill" objectFit='cover' className="autoImage" {...props} />
   </AutoHeightImageWrapper>
 );
 
