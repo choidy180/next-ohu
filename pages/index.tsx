@@ -102,21 +102,15 @@ export default function Home() {
                 </div>
             </TopBox>
             <TopIconBox>
-                {mainTopIcondata.response_data.map((content, i) => (
+                {/* {mainTopIcondata.response_data.map((content, i) => (
                     <div className="icon-box" key={i}>
-                        {/* <AutoHeightImage
-                            src={`/images/icon-main/icon1-shop.png`} 
-                            alt="icon-image"
-                        /> */}
-                        {/* <Image
-                            width={'82'}
-                            height={'60'}
-                            src={`/images/icon-main/icon1-shop.png`} 
+                        <AutoHeightImage
+                            src={`/images/icon-main/${content.image}`} 
                             alt="icon-image"
                         />
-                        <p>{content.title}</p> */}
+                        <p>{content.title}</p>
                     </div>
-                ))}
+                ))} */}
             </TopIconBox>
         </Container>
     )
@@ -125,7 +119,6 @@ export default function Home() {
 const Container = styled.div`
     width: 100%;
     max-width: 1256px;
-    min-width: 1024px;
     padding: 20px 56px;
 `
 const TopBox = styled.div`
@@ -280,7 +273,7 @@ const TopBox = styled.div`
 const TopIconBox = styled.div`
     width: 100%;
     /* height: 100px; */
-    /* margin-top: 24px; */
+    margin-top: 24px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

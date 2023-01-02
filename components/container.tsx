@@ -22,6 +22,7 @@ const ContainerBox = styled.div`
     justify-content: flex-start;
     align-items: center;
     padding-top: 140px;
+    background-color: #FFFFFF;
 `
 
 export default Container;
