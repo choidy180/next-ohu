@@ -20,6 +20,7 @@ export default function Home() {
             image_container_box.current.style.transform = `translateX(-${260 * (imageCount + 1)}px)`;
         }
     }
+    
     return (
         <Container>
             <TopBox>
