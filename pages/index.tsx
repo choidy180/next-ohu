@@ -1,10 +1,9 @@
+import { GetServerSideProps } from "next";
 import Image from "next/image"
 import { useRef, useState } from "react";
 import styled from "styled-components"
-import AutoHeightImage from "../components/index/AutoHeightImage";
-import mainTopIcondata from './api/json/main-top-icon.json';
 
-export default function Home() {
+export default function Home({ data }:any) {
     const image_container_box = useRef<any>(null);
     const image_container_data = [0,1,2,3,4,5,6,7,8,9]; 
     const [imageCount, setImageCount] = useState<number>(0);
@@ -20,10 +19,13 @@ export default function Home() {
             image_container_box.current.style.transform = `translateX(-${260 * (imageCount + 1)}px)`;
         }
     }
-    
+    const LoginPost = () => {
+        
+    }
     return (
         <Container>
-            <TopBox>
+            <h1 onClick={LoginPost}>LOGIN-POST</h1>
+            {/* <TopBox>
                 <div className="left">
                     <Image
                         src={'/images/166849926723253580.jpg'}
@@ -43,7 +45,7 @@ export default function Home() {
                             alt=""
                         />
                         </div>
-                        <span>오늘도날씨는맑음</span>
+                        <span onClick={()=> console.log(data)}>오늘도날씨는맑음</span>
                     </div>
                 </div>
                 <div className="right">
@@ -103,7 +105,7 @@ export default function Home() {
                 </div>
             </TopBox>
             <TopIconBox>
-                {/* {mainTopIcondata.response_data.map((content, i) => (
+                {mainTopIcondata.response_data.map((content, i) => (
                     <div className="icon-box" key={i}>
                         <AutoHeightImage
                             src={`/images/icon-main/${content.image}`} 
@@ -111,16 +113,23 @@ export default function Home() {
                         />
                         <p>{content.title}</p>
                     </div>
-                ))} */}
-            </TopIconBox>
+                ))}
+            </TopIconBox> */}
         </Container>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async context => {
+    const res = await fetch(`https://www.boredapi.com/api/activity`);
+    const data = await res.json();
+    return { props: { data } };
 }
 
 const Container = styled.div`
     width: 100%;
     max-width: 1256px;
     padding: 20px 56px;
+    color: #000000;
 `
 const TopBox = styled.div`
     width: 100%;
@@ -149,7 +158,7 @@ const TopBox = styled.div`
         .title{
             position: absolute;
             left: 30px;
-            bottom: 40px;
+            bottom: 60px;
             color: #FFFFFF;
             font-size: 22px;
         }
