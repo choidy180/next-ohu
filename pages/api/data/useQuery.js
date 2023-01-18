@@ -6,6 +6,21 @@ const fetchHolidays = ({ queryKey }) => {
     return axios.get(`https://date.nager.at/api/v2/publicholidays/2023/${id}`);
 };
 
+// const res = useQueries([
+//     {
+//         queryKey: ['activity'],
+//         queryFn: () => axios.get('https://www.boredapi.com/api/activity')
+//     },
+//     {
+//         querykey: ['holiday'],
+//         queryFn: () => axios.get('https://date.nager.at/api/v2/publicholidays/2023', {
+//             params: {
+//                 id: 'KR'
+//             }
+//         })
+//     }
+// ])
+
 export const useHolidysQuery = (nation) => {
     const queryclient = useQueryClient();
     return useQuery(['holidays', nation], fetchHolidays, {
@@ -22,4 +37,12 @@ const fetchPost = (user) => {
 
 export const useLoginHooks = () => {
     useMutation(fetchPost);
+}
+
+const fetchAddUser = (user) => {
+    return axios.post('https://storicha.in/api/User/SiteSnsLogin', user);
+}
+
+export const useAddUserMutation = () => {
+    return useMutation(fetchAddUser);
 }
